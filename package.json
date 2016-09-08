@@ -18,6 +18,7 @@
   "homepage": "https://github.com/sawheeldon/Skodo#readme",
   "dependencies": {
     "express": "^4.14.0",
+    "jquery": "^3.1.0",
     "mocha": "^3.0.2",
     "request": "^2.74.0"
   },
