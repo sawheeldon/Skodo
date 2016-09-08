@@ -1,12 +1,13 @@
+/* global $ */
+
 var express = require ('express');
 var app = express();
 var expect  = require("chai").expect;
 var request = require("request");
 var unirest = require('unirest');
 var events = require('events');
-var $ = require('jquery')(require("jsdom").jsdom().parentWindow);
 
-$(function(data) {
+!(function(data) {
         $.ajax({
             type: 'GET',
             url:"https://api.soccerama.pro/v1.1/competitions?api_token=3VIR2AoOrayqSFUUhMuVJBWclkzbtXrH712ilcavqLqIboT6qo3Gatc8QYk0&include=country,currentSeason",
