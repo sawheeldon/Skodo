@@ -7,15 +7,19 @@ var request = require("request");
 var unirest = require('unirest');
 var events = require('events');
 
-!(function(data) {
-        $.ajax({
-            type: 'GET',
-            url:"https://api.soccerama.pro/v1.1/competitions?api_token=3VIR2AoOrayqSFUUhMuVJBWclkzbtXrH712ilcavqLqIboT6qo3Gatc8QYk0&include=country,currentSeason",
-            success: function(data){
-                console.log('success', data);
-            }
-            });
-});
+
+// var soccerData = new XMLHttpRequest();
+
+// soccerData.open("GET", "https://api.soccerama.pro/v1.1/competitions?api_token=3VIR2AoOrayqSFUUhMuVJBWclkzbtXrH712ilcavqLqIboT6qo3Gatc8QYk0&include=country,currentSeason", false);
+// soccerData.send(null);
+
+// var data = JSON.parse(soccerData.response);
+
+// var dis = "Superliga: " + data.name;
+
+// document.getElementById("currentLeagues").innerHTML = dis;
+
+
 
 
 // var getApi = function(endpoint, args) {
