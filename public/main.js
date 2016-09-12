@@ -1,5 +1,29 @@
 /* global $ */
 
+//global var
+
+
+//on click hide
+//danish league
+var hideDen = function () {
+  $('#denLogo').click(function() {
+  $('.wholePage').hide( 1, function() {
+    // alert( "Animation complete." );
+    $('.backButton').show();
+  });
+});
+};
+
+//scottish league
+
+var hideScot = function () {
+  $('#scotLogo').click(function() {
+  $('.wholePage').hide( 1, function() {
+    // alert( "Animation complete." );
+    $('.backButton').show();
+  });
+});
+};
 
 var news = function (data) {
   $.ajax({
@@ -28,7 +52,10 @@ var news = function (data) {
 
 
 $(document).ready(function() {
-    
+  
+    $('.backButton').hide();
     news();
+    hideDen();
+    hideScot();
     
 });
