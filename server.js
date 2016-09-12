@@ -19,7 +19,15 @@ var events = require('events');
 
 // document.getElementById("currentLeagues").innerHTML = dis;
 
-
+// (function(data) {
+//         $.ajax({
+//             type: 'GET',
+//             url:"https://api.soccerama.pro/v1.1/competitions?api_token=3VIR2AoOrayqSFUUhMuVJBWclkzbtXrH712ilcavqLqIboT6qo3Gatc8QYk0&include=country,currentSeason",
+//             success: function(data){
+//                 console.log('success', data);
+//             },
+//             });
+// });
 
 
 // var getApi = function(endpoint, args) {

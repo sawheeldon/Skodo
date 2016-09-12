@@ -40,6 +40,10 @@ h2 {
     padding: 1rem;
     color: aliceblue;
 }
+h3 {
+    font-size: 20px;
+    padding: 1rem;
+}
 
 .buttons {
     font-size: 20px;
@@ -50,6 +54,17 @@ h2 {
 
 #login {
     margin-bottom: 1rem;
+}
+
+#latestNewsArea{
+    padding:5px;
+}
+
+.latestNews {
+    margin-bottom:1.2rem;
+    border-style: solid;
+    border-color:aliceblue;
+    border-width:2px;
 }
 
 
