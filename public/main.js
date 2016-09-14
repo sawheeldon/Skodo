@@ -3,7 +3,8 @@
 //global var
 
 
-//on click hide
+//*on click hide || show
+
 //danish league
 var hideDen = function () {
   $('#denLogo').click(function() {
@@ -24,6 +25,8 @@ var hideScot = function () {
   });
 });
 };
+
+//news on main page API
 
 var news = function (data) {
   $.ajax({
@@ -49,7 +52,58 @@ var news = function (data) {
   
 };
 
+var liveScore = function (data) {
+  $.ajax({
+      type: 'GET',
+      url:'https://api.soccerama.pro/v1.2/livescore?api_token=3VIR2AoOrayqSFUUhMuVJBWclkzbtXrH712ilcavqLqIboT6qo3Gatc8QYk0',
+      success: function(data){
+          console.log('success', data);
+          console.log(data);
 
+          // var denScore = data;
+          // var scotScore = data;
+          //
+          // document.getElementById("").innerHTML =  ;
+      }
+      });
+
+};
+
+//
+
+var allTeams = function (data) {
+  $.ajax({
+      type: 'GET',
+      url:'https://api.soccerama.pro/v1/teams/season/2016?api_token=3VIR2AoOrayqSFUUhMuVJBWclkzbtXrH712ilcavqLqIboT6qo3Gatc8QYk0',
+      success: function(data){
+          console.log('success', data);
+          console.log(data);
+
+          // var denScore = data;
+          // var scotScore = data;
+          //
+          // document.getElementById("").innerHTML =  ;
+      }
+      });
+
+};
+
+var highlights = function (data) {
+  $.ajax({
+      type: 'GET',
+      url:'https://api.soccerama.pro/v1.1/videos/match/{152}?api_token=3VIR2AoOrayqSFUUhMuVJBWclkzbtXrH712ilcavqLqIboT6qo3Gatc8QYk0',
+      success: function(data){
+          console.log('success', data);
+          console.log(data);
+
+          // var denScore = data;
+          // var scotScore = data;
+          //
+          // document.getElementById("").innerHTML =  ;
+      }
+      });
+
+};
 
 $(document).ready(function() {
   
@@ -57,5 +111,7 @@ $(document).ready(function() {
     news();
     hideDen();
     hideScot();
-    
+    liveScore();
+    highlights();
+    allTeams();
 });
