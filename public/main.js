@@ -22,6 +22,7 @@ function loginUser(username, password) {
         })
         .done(function (result) { //this waits for the ajax to return with a succesful promise object
             //When successful, set globals from result object
+            console.log("worked", result);
             userName = result.username;
             userID = result._id;
             if(result) {
@@ -54,6 +55,7 @@ function newUser(username, password) {
         })
         .done(function (result) {
             //If successful, set some globals instead of using result object
+            console.log("worked", result);
             userName = result.username;
             userID = result._id;
             //TODO - Don't think we can ever get here, if we get a result back, it's always successful by default? Maybe a similar username was already chosen? - TEST THIS
@@ -70,12 +72,15 @@ function newUser(username, password) {
 
 
        function mainDisplay(result) {
-        $('main.container-main').css('display', 'block');
+        //   alert('here');
+        $('#mainDisplay').css('display', 'block');
+        $('#signLog').css('display', 'none');
 }
 
 
-
 //*on click hide || show
+
+//hide main display
 
 //danish league
 var hideDen = function () {
@@ -121,7 +126,6 @@ var news = function (data) {
           document.getElementById("latestNewsFive").innerHTML = latNewsFive ;
       }
       }); 
-  
 };
 
 var liveScore = function (data) {
@@ -178,28 +182,31 @@ var highlights = function (data) {
 };
 
 $(document).ready(function() {
-  
-  //existing user
-  
-    $('#existingUser').submit(function (event) {
-          event.preventDefault();
-          var username = $('input#username').val();
-          var password = $('input#password').val();
-          loginUser(username,password);
-  });
-  
-   //new user
-   
-    $('#newUser').submit(function (event) {
-        event.preventDefault();
-        var username = $('input#username').val();
-        var password = $('input#password').val();
-        if(!username && password) {
-            $('p.error').text("Must enter a username/password for a new user signup.");
-        } else {
-            newUser(username, password);
-        }
-});
+       //existing user
+       $('#mainDisplay').hide();
+          
+            $('#existingUser').submit(function (event) {
+                  event.preventDefault();
+                  var username = $('input#username').val();
+                  var password = $('input#password').val();
+                  loginUser(username,password);
+          });
+          
+            
+            $('#newUser').submit(function (event) {
+                // alert("here!!!");
+                event.preventDefault();
+                // var username = $('#username').val();
+                // var password = $('#password').val();
+                var username = $(this).find("input[name='username']").val();
+                var password = $(this).find("input[name='password']").val();
+                // console.log(password);
+                if(!username && password) {
+                    $('p.error').text("Must enter a username/password for a new user signup.");
+                } else {
+                    newUser(username, password);
+                }
+             });
   
     $('.backButton').hide();
     news();
@@ -208,4 +215,5 @@ $(document).ready(function() {
     liveScore();
     highlights();
     allTeams();
+    
 });

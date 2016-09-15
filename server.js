@@ -15,7 +15,7 @@ var config=require('./config');
 
 //req schemas for players 
 
-var User = require('../models/user');
+var User = require('./models/user');
 
 var bcrypt = require('bcryptjs');
 var passport = require('passport');
@@ -136,14 +136,14 @@ app.post('/users/create', function(req, res) {
     bcrypt.genSalt(10, function(err, salt) {
         if (err) {
             return res.status(500).json({
-                message: 'Internal server error'
+                message: 'Internal server error 139'
             });
         }
 
         bcrypt.hash(password, salt, function(err, hash) {
             if (err) {
                 return res.status(500).json({
-                    message: 'Internal server error'
+                    message: 'Internal server error 146'
                 });
             }
         
@@ -153,7 +153,7 @@ app.post('/users/create', function(req, res) {
         }, function(err, item) {
             if (err) {
                 return res.status(500).json({
-                    message: 'Internal Server Error'
+                    message: 'Internal Server Error 156'
                 });
             }
             if(item) {

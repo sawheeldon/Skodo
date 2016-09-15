@@ -19,6 +19,7 @@
         <header class="col-xs-12">
             <h1>Skodo</h1>
         </header>
+        <section id="signLog">
         <section>
             <div class="col-xs-4"></div>
             <div id="skodoLogo">
@@ -43,11 +44,11 @@
                         <form id="existingUser" action="login" method="login">
                             <div class="form-group">
                                 <label for="username"> Username </label>
-                                <input type="username" class="form-control" id="username">
+                                <input name="username" value=""  type="username" class="form-control" id="username">
                             </div>
                             <div class="form-group">
                                 <label for="password"> Password </label>
-                                <input type="password" class="form-control" id="password">
+                                <input name="password" value="" type="password" class="form-control" id="password">
                             </div>
                             <div><p class="form-group loginErr"></p></div>
                             <div class="form-group">
@@ -67,14 +68,14 @@
                 <button class="btn btn-default buttons" data-toggle="collapse" data-target="#content_2" id="signUp"> Sign Up </button>
                 <div class="collapse" id="content_2">
                     <div class="well">
-                        <form id="newUser" action="login" method="post">
+                        <form id="newUser"  method="post">
                             <div class="form-group">
-                                <label for="newUsername"> Username </label>
-                                <input type="username" class="form-control" id="username">
+                                <label for="username"> Username </label>
+                                <input name="username" value="" type="username" class="form-control" id="username">
                             </div>
                             <div class="form-group">
-                                <label for="newPassword"> Password </label>
-                                <input type="password" class="form-control" id="password">
+                                <label for="password"> Password </label>
+                                <input name="password" value="" type="password" class="form-control" id="password">
                             </div>
                             <div><p class="form-group newLoginErr"></p></div>
                             <div class="form-group">
@@ -85,7 +86,47 @@
                 </div>
                 </div>
                 </section>
+                </section>
                 <!--end of section for new user signup-->
+                
+                
+                <!--Start of main display-->
+                
+              <section id="mainDisplay"> 
+              <section class="backButton">
+            <div class="col-xs-12"><a href="index.html">
+                <span class="glyphicon glyphicon-triangle-left"></span>
+                <p>Back</p>
+                </a>
+            </div>
+        </section>
+        <article class="wholePage">
+        <section id="logos">
+            <div>
+                <h2 class="col-xs-12">Check out our featured leagues below.</h2>
+            </div>
+            <div class="col-xs-6" id="denLogo"><img src="/images/Danish_Superliga_logo-2.png" height=125px width=180px> </div>
+            <div class="col-xs-6" id="scotLogo"><img src="/images/sp.jpg" height=125px width=180px> </div>
+        </section>
+        <section id="latestNewsArea">
+            <div>
+                <h3 class="col-xs-12">Latest football news from around the globe.</h3>
+            </div>
+            <div class="col-xs-12 latestNews" id="latestNewsOne"></div>
+            <div class="col-xs-12 latestNews" id="latestNewsTwo"></div>
+            <div class="col-xs-12 latestNews" id="latestNewsThree"></div>
+            <div class="col-xs-12 latestNews" id="latestNewsFour"></div>
+            <div class="col-xs-12 latestNews" id="latestNewsFive"></div>
+            <div class="col-xs-12 latestNews"><p>For more of the latest football news, please head on over to <a href="http://talksport.com/" target="_blank">Talk Sport</a></p></div>
+        </section>
+        <section>
+            <div class="col-xs-12" id="currentLiveDenmark"></div>
+        </section>
+        <section>
+            <div class="col-xs-12" id="currentLiveScotland"></div>
+        </section>
+        </article>
+        </section> 
     </main>
 
     <!-- JS  -->
