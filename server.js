@@ -5,6 +5,7 @@ var app = express();
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
+
 var expect  = require("chai").expect;
 var request = require("request");
 var unirest = require('unirest');
@@ -14,7 +15,7 @@ var config=require('./config');
 
 //req schemas for players 
 
-var User = require('./models/user');
+var User = require('../models/user');
 
 var bcrypt = require('bcryptjs');
 var passport = require('passport');
@@ -52,6 +53,7 @@ if (require.main === module) {
         }
     });
 }
+
 
 
 //--Login of single user from login page, protected by bcrypt boom
@@ -122,6 +124,7 @@ app.delete('/users/:id', function(req,res) {
         res.status(201).json(item);
    });
 });
+
 
 //--Creates new user in DB from login/signup main page
 app.post('/users/create', function(req, res) {

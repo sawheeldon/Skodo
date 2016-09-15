@@ -4,9 +4,9 @@
 
 var userName;
 var userID;
-var mainPage = require('../main.html')
 
 //login user
+
 
 function loginUser(username, password) {
     $('p.error').empty();
@@ -26,15 +26,15 @@ function loginUser(username, password) {
             userID = result._id;
             if(result) {
                     //go to main page
-                    mainDisplay();
+                    mainDisplay(result);
             } else {
                     //Doesn't have a team yet, go to team builder so they can create a team
-                    mainDisplay();
+                    mainDisplay(result);
             }
         })
         .fail(function (jqXHR, error) {
                 //User login was unsuccessful, due to pw/username combination was wrong
-                $('p.login_error').text("We're sorry, that un/pw combination was incorrect.");
+                $('p.loginErr').text("We're sorry, that username and password combination was incorrect.");
         });
 }
 
@@ -58,18 +58,19 @@ function newUser(username, password) {
             userID = result._id;
             //TODO - Don't think we can ever get here, if we get a result back, it's always successful by default? Maybe a similar username was already chosen? - TEST THIS
             if(result.username) {
-                mainDisplay();
+                mainDisplay(result);
             } else {
-                $('p.newuser_error').text("Sorry, that is taken, try another username");
+                $('p.newLoginErr').text("Sorry, that is taken, try another username");
             }
         })
         .fail(function (jqXHR, error) { //this waits for the ajax to return with an error promise object
-                $('p.newuser_error').text("We're sorry, there was a system error, try again.");
+                $('p.newLoginErr').text("We're sorry, there was a system error, try again.");
         });
 }
 
-function mainDisplay() {
-        $(mainPage).css('display', 'none');
+
+       function mainDisplay(result) {
+        $('main.container-main').css('display', 'block');
 }
 
 
@@ -180,7 +181,7 @@ $(document).ready(function() {
   
   //existing user
   
-    $('#login').submit(function (event) {
+    $('#existingUser').submit(function (event) {
           event.preventDefault();
           var username = $('input#username').val();
           var password = $('input#password').val();
@@ -189,10 +190,10 @@ $(document).ready(function() {
   
    //new user
    
-    $('#new_user').submit(function (event) {
+    $('#newUser').submit(function (event) {
         event.preventDefault();
-        var username = $('input#newUsername').val();
-        var password = $('input#newPassword').val();
+        var username = $('input#username').val();
+        var password = $('input#password').val();
         if(!username && password) {
             $('p.error').text("Must enter a username/password for a new user signup.");
         } else {
