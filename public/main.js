@@ -2,6 +2,77 @@
 
 //global var
 
+var userName;
+var userID;
+var mainPage = require('../main.html')
+
+//login user
+
+function loginUser(username, password) {
+    $('p.error').empty();
+    var q_string = {
+        'username':username,
+        'password':password
+    };
+    $.ajax({
+            type:"POST",
+            url:"/login",
+            data: q_string,
+            dataType:'json',
+        })
+        .done(function (result) { //this waits for the ajax to return with a succesful promise object
+            //When successful, set globals from result object
+            userName = result.username;
+            userID = result._id;
+            if(result) {
+                    //go to main page
+                    mainDisplay();
+            } else {
+                    //Doesn't have a team yet, go to team builder so they can create a team
+                    mainDisplay();
+            }
+        })
+        .fail(function (jqXHR, error) {
+                //User login was unsuccessful, due to pw/username combination was wrong
+                $('p.login_error').text("We're sorry, that un/pw combination was incorrect.");
+        });
+}
+
+// new user set up
+
+function newUser(username, password) {
+    $('p.error').empty();
+    var q_string = {
+        'username':username,
+        'password':password
+    };    
+    $.ajax({
+            type:"POST",
+            url:"/users/create",
+            data: q_string,
+            dataType:'json',
+        })
+        .done(function (result) {
+            //If successful, set some globals instead of using result object
+            userName = result.username;
+            userID = result._id;
+            //TODO - Don't think we can ever get here, if we get a result back, it's always successful by default? Maybe a similar username was already chosen? - TEST THIS
+            if(result.username) {
+                mainDisplay();
+            } else {
+                $('p.newuser_error').text("Sorry, that is taken, try another username");
+            }
+        })
+        .fail(function (jqXHR, error) { //this waits for the ajax to return with an error promise object
+                $('p.newuser_error').text("We're sorry, there was a system error, try again.");
+        });
+}
+
+function mainDisplay() {
+        $(mainPage).css('display', 'none');
+}
+
+
 
 //*on click hide || show
 
@@ -106,6 +177,28 @@ var highlights = function (data) {
 };
 
 $(document).ready(function() {
+  
+  //existing user
+  
+    $('#login').submit(function (event) {
+          event.preventDefault();
+          var username = $('input#username').val();
+          var password = $('input#password').val();
+          loginUser(username,password);
+  });
+  
+   //new user
+   
+    $('#new_user').submit(function (event) {
+        event.preventDefault();
+        var username = $('input#newUsername').val();
+        var password = $('input#newPassword').val();
+        if(!username && password) {
+            $('p.error').text("Must enter a username/password for a new user signup.");
+        } else {
+            newUser(username, password);
+        }
+});
   
     $('.backButton').hide();
     news();

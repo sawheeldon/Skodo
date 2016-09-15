@@ -17,8 +17,11 @@
   },
   "homepage": "https://github.com/sawheeldon/Skodo#readme",
   "dependencies": {
+    "body-parser": "^1.15.2",
     "express": "^4.14.0",
     "mocha": "^3.0.2",
+    "mongodb": "^2.2.9",
+    "mongoose": "^4.6.0",
     "request": "^2.74.0"
   },
   "devDependencies": {
