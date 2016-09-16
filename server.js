@@ -4,7 +4,12 @@ var express = require ('express');
 var app = express();
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
+var feed = require("feed-read");
+var http = require("http");
 
+//URLs 
+
+var url = 'http://www.bbc.co.uk/sport/football';
 
 var expect  = require("chai").expect;
 var request = require("request");
@@ -27,6 +32,22 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: true
 }));
+
+// Utility function that downloads a URL and invokes
+// callback with the data.
+function download(url, callback) {
+  http.get(url, function(res) {
+    var data = "";
+    res.on('data', function (chunk) {
+      data += chunk;
+    });
+    res.on("end", function() {
+      callback(data);
+    });
+  }).on("error", function() {
+    callback(null);
+  });
+}
 
 //run server function
 
@@ -164,6 +185,23 @@ app.post('/users/create', function(req, res) {
         });
     });
 });
+
+//download page function
+
+download(url, function(data) {
+  if (data) {
+    console.log('test',data);
+  }
+  else console.log("error");  
+});
+
+// feed('http://feeds.bbci.co.uk/sport/football/rss.xml?edition=uk', function (err, articles){
+//       if (err) throw err;
+//       else { 
+//           console.log(feed.title);
+//       }
+//   });
+
 
 exports.app = app;
 exports.runServer = runServer;
