@@ -77,6 +77,29 @@ h3 {
     border-width:2px;
 }
 
+#latestItNewsTitle, #latestEnNewsTitle {
+    color: aliceblue;
+    font-size: 30px;
+    padding: 1.2rem;
+}
+
+.latestItNews, .latestEnNews {
+    margin-bottom:1.2rem;
+    border-style: solid;
+    border-color:aliceblue;
+    border-width:2px;
+}
+
+#latestItImageOne, #latestEnImageOne {
+    height:300px;
+    border: 2px solid darkslategray;
+    background-size:cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    padding-bottom:1rem;
+    
+}
+
 
 /* -------------------------------------
 Header styles (Main Module)

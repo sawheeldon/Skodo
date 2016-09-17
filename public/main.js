@@ -105,7 +105,7 @@ var videoSearch = function (data) {
 
         $.each(videoArray, function (videoArrayKey, videoArrayValue) {
             buildTheHtmlOutput += "<li>";
-            buildTheHtmlOutput += "<p>" + videoArrayValue.snippet.title + "</p>";
+            buildTheHtmlOutput += "<h2>" + videoArrayValue.snippet.title + "</h2>";
             buildTheHtmlOutput += "<a href='https://www.youtube.com/watch?v=" + videoArrayValue.id.videoId + "' target='_blank'>";
             buildTheHtmlOutput += "<img src='" + videoArrayValue.snippet.thumbnails.high.url + "' width='100%'/>";
             buildTheHtmlOutput += "</a>";
@@ -130,6 +130,7 @@ var backButton = function () {
     $('.backButton').hide();
     $('.video-container').hide();
     $('.serieA').hide();
+    $('.EPL').hide();
     $('#team-name').val("");
     $('#logos').css('display', 'block');
     $('#latestNewsArea').css('display', 'block');
@@ -149,18 +150,16 @@ var SerieA = function () {
                   success: function(data){
                       console.log('success', data);
                       console.log(data);
-            
-                      var latItNewsOne = data.articles[0].description;
-                      var latItNewsTwo = data.articles[1].description;
-                      var latItNewsThree = data.articles[2].description;
-                      var latItNewsFour = data.articles[3].description;
-                      var latItNewsFive = data.articles[4].description;
-            
-                      document.getElementById("latestItNewsOne").innerHTML = latItNewsOne ;
-                      document.getElementById("latestItNewsTwo").innerHTML = latItNewsTwo ;
-                      document.getElementById("latestItNewsThree").innerHTML = latItNewsThree ;
-                      document.getElementById("latestItNewsFour").innerHTML = latItNewsFour ;
-                      document.getElementById("latestItNewsFive").innerHTML = latItNewsFive ;
+                    
+                      var itemResults = ' <div class="col-xs-12 latestItNewsT" id="latestItNewsTitle">'+ data.articles[1].title +'</div>';
+                          itemResults += '<div class = "col-sm-6 col-sm-offset-3 latestItImage" id="latestItImageOne" style="background-image: url(' + data.articles[1].urlToImage + ')"></div>';
+                          itemResults += ' <div class="col-xs-12 latestItNews" id="latestItNewsOne">'+ data.articles[1].description +'</div>';
+                          itemResults += '<div class="col-xs-12 latestItNews" id="latestItNewsTwo">'+ data.articles[2].description +'</div>';
+                          itemResults += '<div class="col-xs-12 latestItNews" id="latestItNewsThree">'+ data.articles[3].description +'</div>';
+                          itemResults += '<div class="col-xs-12 latestItNews" id="latestItNewsFour">'+ data.articles[4].description +'</div>';
+                          itemResults += '<div class="col-xs-12 latestItNews" id="latestItNewsFive">'+ data.articles[5].description +'</div>';
+                      
+                      $("#serieAPI").html(itemResults); 
                   }
                   }); 
             };
@@ -178,10 +177,36 @@ var SerieA = function () {
 //english league
 
 var EPL = function () {
+    
+    //new on serie A page
+
+            var englishNews = function (data) {
+              $.ajax({
+                  type: 'GET',
+                  url:'https://newsapi.org/v1/articles?source=talksport&sortBy=top&apiKey=9e6d16842a6b4368b4937a31ccf54035',
+                  success: function(data){
+                      console.log('success', data);
+                      console.log(data);
+                    
+                      var itemResults = ' <div class="col-xs-12 latestEnNewsT" id="latestEnNewsTitle">'+ data.articles[1].title +'</div>';
+                          itemResults += '<div class = "col-sm-6 col-sm-offset-3 latestEnImage" id="latestEnImageOne" style="background-image: url(' + data.articles[1].urlToImage + ')"></div>';
+                          itemResults += ' <div class="col-xs-12 latestEnNews" id="latestEnNewsOne">'+ data.articles[1].description +'</div>';
+                          itemResults += '<div class="col-xs-12 latestEnNews" id="latestEnNewsTwo">'+ data.articles[2].description +'</div>';
+                          itemResults += '<div class="col-xs-12 latestEnNews" id="latestEnNewsThree">'+ data.articles[3].description +'</div>';
+                          itemResults += '<div class="col-xs-12 latestEnNews" id="latestEnNewsFour">'+ data.articles[4].description +'</div>';
+                          itemResults += '<div class="col-xs-12 latestEnNews" id="latestEnNewsFive">'+ data.articles[5].description +'</div>';
+                      
+                      $("#englishAPI").html(itemResults); 
+                  }
+                  }); 
+            };
+    
   $('#englishLogo').click(function() {
   $('.wholePage').hide( 1, function() {
     // alert( "Animation complete." );
     $('.backButton').show();
+    $('.EPL').show();
+    englishNews();
   });
 });
 };
@@ -191,7 +216,7 @@ var EPL = function () {
 var news = function (data) {
   $.ajax({
       type: 'GET',
-      url:'https://newsapi.org/v1/articles?source=talksport&sortBy=top&apiKey=9e6d16842a6b4368b4937a31ccf54035',
+      url:'https://newsapi.org/v1/articles?source=four-four-two&sortBy=top&apiKey=9e6d16842a6b4368b4937a31ccf54035',
       success: function(data){
           console.log('success', data);
           console.log(data);
@@ -201,12 +226,16 @@ var news = function (data) {
           var latNewsThree = data.articles[2].description;
           var latNewsFour = data.articles[3].description;
           var latNewsFive = data.articles[4].description;
+          var latNewsSix = data.articles[5].description;
+          var latNewsSeven = data.articles[6].description;
 
           document.getElementById("latestNewsOne").innerHTML = latNewsOne ;
           document.getElementById("latestNewsTwo").innerHTML = latNewsTwo ;
           document.getElementById("latestNewsThree").innerHTML = latNewsThree ;
           document.getElementById("latestNewsFour").innerHTML = latNewsFour ;
           document.getElementById("latestNewsFive").innerHTML = latNewsFive ;
+          document.getElementById("latestNewsSix").innerHTML = latNewsSix ;
+          document.getElementById("latestNewsSeven").innerHTML = latNewsSeven ;
       }
       }); 
 };
