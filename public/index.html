@@ -29,7 +29,7 @@
         </section>
         <section class="col-xs-6 col-xs-offset-3">
             <h2>Welcome to Skodo</h2>
-            <p>Sign up or log in below to test out our funky new app. Skodo focuses on the Scottish Premier League and the Danish Premier League, so if you are having trouble keeping up with latest scores, look no further.</p>
+            <p>Sign up or log in below to test out our funky new app. Skodo is all about football news and highlights.</p>
         </section>
         
           <!--end of welcome-->
@@ -94,23 +94,48 @@
                 
               <section id="mainDisplay"> 
               <section class="backButton">
-            <div class="col-xs-12"><a href="index.html">
+            <div class="col-xs-12" id="backB">
                 <span class="glyphicon glyphicon-triangle-left"></span>
                 <p>Back</p>
-                </a>
             </div>
         </section>
         <article class="wholePage">
         <section id="logos">
             <div>
-                <h2 class="col-xs-12">Check out our featured leagues below.</h2>
+                <h2 class="col-xs-12">What is going on in your league? Click on the logo to find out.</h2>
             </div>
-            <div class="col-xs-6" id="denLogo"><img src="/images/Danish_Superliga_logo-2.png" height=125px width=180px> </div>
-            <div class="col-xs-6" id="scotLogo"><img src="/images/sp.jpg" height=125px width=180px> </div>
+            <div class="col-xs-6" id="italyLogo"><img src="/images/serieA.png" height=125px width=150px> </div>
+            <div class="col-xs-6" id="englishLogo"><img src="/images/PL.png" height=125px width=150px> </div>
         </section>
+        
+        <!-- video search -->
+        
+        
+        <section class="videoSearch">
+            <h3>Type in your team and see their latest highlights</h3>
+            <div class="col-xs-12 search-container">
+                    <form action="" method="">
+                        <div class="form-group getTeam">
+                            <label for="team-name"> Football Team Name </label>
+                            <input type="team-name" class="form-control" id="team-name" name="teamName" placeholder="Aston Villa">
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-default submitTeam" id="submitTeam" name="teamInput">
+                        </div>
+                    </form>
+            </div>
+             <div class="video-container">
+                  <ul id="videoResult"></ul>
+            </div>      
+        </section>
+        
+         <!-- end of video search -->
+         
+         <!-- global news  -->
+         
         <section id="latestNewsArea">
             <div>
-                <h3 class="col-xs-12">Latest football news from around the globe.</h3>
+                <h3 class="col-xs-12">The latest football news from around the globe.</h3>
             </div>
             <div class="col-xs-12 latestNews" id="latestNewsOne"></div>
             <div class="col-xs-12 latestNews" id="latestNewsTwo"></div>
@@ -119,16 +144,28 @@
             <div class="col-xs-12 latestNews" id="latestNewsFive"></div>
             <div class="col-xs-12 latestNews"><p>For more of the latest football news, please head on over to <a href="http://talksport.com/" target="_blank">Talk Sport</a></p></div>
         </section>
-        <section>
-            <div class="col-xs-12" id="currentLiveDenmark"></div>
-        </section>
-        <section>
-            <div class="col-xs-12" id="currentLiveScotland"></div>
-        </section>
-        <section>
-            <div class="col-xs-12" id="test"></div>
-        </section>
+        
+         <!-- end of global news  -->
+         
+         <!-- end of main page -->
+         
         </article>
+        
+        <!-- additional pages  -->
+        <section class="additionalPages">
+          <div class="col-xs-12 serieA">
+            <div id="serieAPI">
+                <div class="col-xs-12 latestItNews" id="latestItNewsOne"></div>
+                <div class="col-xs-12 latestItNews" id="latestItNewsTwo"></div>
+                <div class="col-xs-12 latestItNews" id="latestItNewsThree"></div>
+                <div class="col-xs-12 latestItNews" id="latestItNewsFour"></div>
+                <div class="col-xs-12 latestItNews" id="latestItNewsFive"></div>
+            </div>
+        </div>
+        <div class="col-xs-12 EPL">
+            <div id="englishAPI"></div>
+        </div>
+        </section>
         </section> 
     </main>
 
