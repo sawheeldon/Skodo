@@ -13,3 +13,4 @@ The App utilises 3 live news APIs in multiple ways and uses a youtube API for vi
 
 Hope you enjoy it!
 
+Please review my screenshots folder to see the App up close and personal.
