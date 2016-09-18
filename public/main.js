@@ -151,8 +151,8 @@ var SerieA = function () {
                       console.log('success', data);
                       console.log(data);
                     
-                      var itemResults = ' <div class="col-xs-12 latestItNewsT" id="latestItNewsTitle">'+ data.articles[1].title +'</div>';
-                          itemResults += '<div class = "col-sm-6 col-sm-offset-3 latestItImage" id="latestItImageOne" style="background-image: url(' + data.articles[1].urlToImage + ')"></div>';
+                      var itemResults = ' <div class="col-xs-12  latestItNewsT" id="latestItNewsTitle">'+ data.articles[1].title +'</div>';
+                          itemResults += '<div class = "col-xs-12 latestItImage" id="latestItImageOne" style="background-image: url(' + data.articles[1].urlToImage + ')"></div>';
                           itemResults += ' <div class="col-xs-12 latestItNews" id="latestItNewsOne">'+ data.articles[1].description +'</div>';
                           itemResults += '<div class="col-xs-12 latestItNews" id="latestItNewsTwo">'+ data.articles[2].description +'</div>';
                           itemResults += '<div class="col-xs-12 latestItNews" id="latestItNewsThree">'+ data.articles[3].description +'</div>';
@@ -189,7 +189,7 @@ var EPL = function () {
                       console.log(data);
                     
                       var itemResults = ' <div class="col-xs-12 latestEnNewsT" id="latestEnNewsTitle">'+ data.articles[1].title +'</div>';
-                          itemResults += '<div class = "col-sm-6 col-sm-offset-3 latestEnImage" id="latestEnImageOne" style="background-image: url(' + data.articles[1].urlToImage + ')"></div>';
+                          itemResults += '<div class = "col-xs-12 latestEnImage" id="latestEnImageOne" style="background-image: url(' + data.articles[1].urlToImage + ')"></div>';
                           itemResults += ' <div class="col-xs-12 latestEnNews" id="latestEnNewsOne">'+ data.articles[1].description +'</div>';
                           itemResults += '<div class="col-xs-12 latestEnNews" id="latestEnNewsTwo">'+ data.articles[2].description +'</div>';
                           itemResults += '<div class="col-xs-12 latestEnNews" id="latestEnNewsThree">'+ data.articles[3].description +'</div>';
